@@ -1,0 +1,104 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>Example 2D Damage Algorithm Thing</title>
+		<script src="$.js"></script>
+		<script src="Algorithm Snippet.js"></script>
+		<script src="Example.manual_input.js"></script>
+		<link rel="stylesheet" href="Example.css">
+	</head>
+	<body>
+		<div id="d1">
+			<label id="c1name">Client1 Name: </label><input type="text" onchange="this.type = 'hidden';
+			(function (name, w){
+				var t = new client; t.name=name; t.health = 12;
+				t.outputElement = $('client1').getElement(); t.healthElement = $('c1health').getElement();
+				w.client1 = t;
+				$('c1name').getElement().innerHTML+= name;
+				w.Server.clients.add(name, t.socket);
+				$('c1health').getElement().innerHTML = server.clientHealth;
+			})(this.value, window);"><br>
+			<label>Health: </label><label id="c1health"></label><br><hr>
+			<div class="target">
+				<label>Target:</label><br>
+				<form action="" onsubmit="return false;" id="f1">
+					<input type="radio" name="firecoords" value="0,2" class="zt">
+					<input type="radio" name="firecoords" value="1,2" class="ot">
+					<input type="radio" name="firecoords" value="2,2" class="tt">
+					<input type="radio" name="firecoords" value="0,1" class="zo">
+					<input type="radio" name="firecoords" value="1,1" class="oo">
+					<input type="radio" name="firecoords" value="2,1" class="to">
+					<input type="radio" name="firecoords" value="0,0" class="zz">
+					<input type="radio" name="firecoords" value="1,0" class="oz">
+					<input type="radio" name="firecoords" value="2,0" class="tz">
+				</form>
+			</div>
+			<div class="evade">
+				<label>Evade:</label><br>
+				<form action="" onsubmit="return false;" id="e1">
+					<input type="radio" name="evadecoords" value="0,2" class="zt">
+					<input type="radio" name="evadecoords" value="1,2" class="ot">
+					<input type="radio" name="evadecoords" value="2,2" class="tt">
+					<input type="radio" name="evadecoords" value="0,1" class="zo">
+					<input type="radio" name="evadecoords" value="1,1" class="oo">
+					<input type="radio" name="evadecoords" value="2,1" class="to">
+					<input type="radio" name="evadecoords" value="0,0" class="zz">
+					<input type="radio" name="evadecoords" value="1,0" class="oz">
+					<input type="radio" name="evadecoords" value="2,0" class="tz">
+				</form>
+			</div>
+			<p id="client1">Output:<br></p>
+		</div>
+		
+		<div id="d2">
+			<label id="c2name">Client2 Name: </label><input type="text" onchange="this.type = 'hidden';
+			(function (name, w){
+				var t = new client; t.name=name; t.health = 12;
+				t.outputElement = $('client2').getElement(); t.healthElement = $('c2health').getElement();
+				w.client2 = t;
+				$('c2name').getElement().innerHTML+= name;
+				w.Server.clients.add(name, t.socket);
+				$('c2health').getElement().innerHTML = server.clientHealth;
+			})(this.value, window);"><br>
+			<label>Health: </label><label id="c2health"></label><br><hr>
+			<div class="target">
+				<label>Target:</label><br>
+				<form action="" onsubmit="return false;" id="f2">
+					<input type="radio" name="firecoords" value="0,2" class="zt">
+					<input type="radio" name="firecoords" value="1,2" class="ot">
+					<input type="radio" name="firecoords" value="2,2" class="tt">
+					<input type="radio" name="firecoords" value="0,1" class="zo">
+					<input type="radio" name="firecoords" value="1,1" class="oo">
+					<input type="radio" name="firecoords" value="2,1" class="to">
+					<input type="radio" name="firecoords" value="0,0" class="zz">
+					<input type="radio" name="firecoords" value="1,0" class="oz">
+					<input type="radio" name="firecoords" value="2,0" class="tz">
+				</form>
+			</div>
+			<div class="evade">
+				<label>Evade:</label><br>
+				<form action="" onsubmit="return false;" id="e2">
+					<input type="radio" name="evadecoords" value="0,2" class="zt">
+					<input type="radio" name="evadecoords" value="1,2" class="ot">
+					<input type="radio" name="evadecoords" value="2,2" class="tt">
+					<input type="radio" name="evadecoords" value="0,1" class="zo">
+					<input type="radio" name="evadecoords" value="1,1" class="oo">
+					<input type="radio" name="evadecoords" value="2,1" class="to">
+					<input type="radio" name="evadecoords" value="0,0" class="zz">
+					<input type="radio" name="evadecoords" value="1,0" class="oz">
+					<input type="radio" name="evadecoords" value="2,0" class="tz">
+				</form>
+			</div>
+			<p id="client2">Output:<br></p>
+		</div>
+		
+		<input type="submit" value="Tick!" onclick="tick()"><br>
+		<p id="sdata">Server data:</p>
+		<script>
+			$("sdata").getElement().innerHTML += "<br>Critical Hit Damage: "+server.fireDamageMax;
+			$("sdata").getElement().innerHTML += "<br>Non-critical hit penalty per x/y unit: "+server.fireDamageDiff;
+			$("sdata").getElement().innerHTML += "<br>Max x/y coordinate change: "+server.maxCoordChange + "<br>(not yet implemented)";
+			$("sdata").getElement().innerHTML += "<br>Initial client health: "+server.clientHealth;
+		</script>
+	</body>
+</html>

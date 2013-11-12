@@ -1,0 +1,7 @@
+body>div {height:700px; width:500px; background:#eee; margin-bottom: 20px;float:left;clear:right;}
+body>div p {padding: 20px;}
+.target, .evade {width: 50%; float: left; clear:right;}
+.target form, .evade form {padding:0; margin:10px; background: #bbb; width: 75%}
+.target input[type="radio"], .evade input[type="radio"] {width: 31%; padding: 0; margin: 20px 0px;}
+input[type="submit"] {background: #eee; padding: 10px; border:0px;box-shadow: 0px 0px 10px #999;border-radius: 4px; display:block;margin:auto;position:relative;}
+input[type="submit"]:hover {background: #eee; padding: 10px; border:0px;box-shadow: 0px 0px 10px #444;border-radius: 4px; display:block;margin:auto;position:relative;}
