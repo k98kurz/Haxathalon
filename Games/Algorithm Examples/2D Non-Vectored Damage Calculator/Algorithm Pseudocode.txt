@@ -1,0 +1,16 @@
+calculateDamage ( targetCoords, evadeCoords, maxDamage, nonCriticalOffset ) {
+	offsetX = absValue (targetCoords.X - evadeCoords.X)
+	offsetY = absValue (targetCoords.Y - evadeCoords.Y)
+	damage = maxDamage - nonCriticalOffset * (offsetX + offsetY)
+	return damage
+}
+
+// Note the lack of Pythagorean's theorem. This is pretty easy to implement, though I didn't bother for the JS example:
+
+calculateDamage ( targetCoords, evadeCoords, maxDamage, nonCriticalOffset ) {
+	offsetX = absValue (targetCoords.X - evadeCoords.X)
+	offsetY = absValue (targetCoords.Y - evadeCoords.Y)
+	offset = sqRoot (offsetX * offsetX + offsetY * offsetY)
+	damage = maxDamage - nonCriticalOffset * offset
+	return damage
+}
